@@ -5,19 +5,18 @@ This repository contains a Physics-Informed Neural Network (PINN) implementation
 ## 📘 Problem Overview
 
 We solve the following PDE:
-\[
--\nabla^2 u(x, y) - k_0^2 u(x, y) = f(x, y)
-\]
-- Complex-valued solution: \( u(x, y) = \text{Re}(u) + i \, \text{Im}(u) \)
-- Point source \( f(x, y) = i \omega \delta(x - x_0, y - y_0) \)
-- Open boundary conditions on all edges: \(\frac{\partial u}{\partial n} + i k_0 u = 0\)
+$$-\nabla^2 E_z - \epsilon\omega^2 E_z = -i\omega J_z$$
+
+- Complex-valued solution: $$E_z(x, y) = \text{Re}(E_z(x, y)) + i \, \text{Im}(E_z(x, y))$$
+- Point source $$f(x, y) = \delta(x - x_0, y - y_0)$$
+- Open boundary conditions on all edges: $$\frac{\partial E_z}{\partial n} + i k E_z = 0$$
 
 ## 🔬 Features
 
 - **SIREN (Sinusoidal Representation Network)** for high-frequency solution modeling
-- Point source at arbitrary location (default: \((-L/4, L/4)\))
-- Circular inclusion with higher permittivity \( \varepsilon = 2 \) at the center
-- Automatically handles spatially varying \( \varepsilon(x, y) \)
+- Point source at arbitrary location
+- Circular inclusion with higher permittivity $$\varepsilon = 2$$ at the center
+- Automatically handles spatially varying $$\varepsilon(x, y)$$
 - Visualizations for:
   - Real part, Imaginary part, and Amplitude of predicted field
   - Comparison with analytical solution via Hankel function (Green's function)
